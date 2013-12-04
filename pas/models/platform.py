@@ -8,6 +8,12 @@ class Platform(object):
         self.name = name
         self.url = url
 
+    def __str__(self):
+        return ('<Platform(name=%s, url=%s)>'
+                % (self.name, self.url))
+
+    __repr__ = __str__
+
     @classmethod
     def db_key(cls):
         return '/pass/platform'
