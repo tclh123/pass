@@ -5,3 +5,7 @@
 vendor
 
 databases/pkl/*
+
+venv
+
+*.egg-info
