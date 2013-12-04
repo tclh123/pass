@@ -25,7 +25,7 @@ class Platform(object):
 
     @classmethod
     def gets(cls):
-        return cls._gets().items()
+        return cls._gets().values()
 
     @classmethod
     def get(cls, name):
