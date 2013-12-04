@@ -14,7 +14,7 @@ class Platform(object):
 
     @classmethod
     def gets(cls):
-        return store.get(cls.db_key())
+        return store.get(cls.db_key(), [])
 
     @classmethod
     def add(cls, name, url):
