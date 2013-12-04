@@ -5,8 +5,8 @@ from pas.models.platform import Platform
 
 def populate_argument_parser(parser):
     parser.add_argument('action', choices=['add', 'list', 'rm'])
-    parser.add_argument('--name', help="platform's name")
-    parser.add_argument('--url', help="platform's url")
+    parser.add_argument('-n', '--name', help="platform's name")
+    parser.add_argument('-u', '--url', help="platform's url")
 
 
 def main(args):

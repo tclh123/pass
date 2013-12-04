@@ -15,6 +15,10 @@ class Platform(object):
         return ('<Platform(name=%s, url=%s)>'
                 % (self.name, self.url))
 
+    @property
+    def unique_key(self):
+        return self.name
+
     @classmethod
     def db_key(cls):
         return '/pass/platform'
@@ -36,6 +40,7 @@ class Platform(object):
         ps = cls._gets()
         if name in ps:
             del ps[name]
+            store.set(cls.db_key(), ps)
             return True
         else:
             return False
@@ -44,6 +49,6 @@ class Platform(object):
     def add(cls, name, url):
         ps = cls._gets()
         p = cls(name, url)
-        ps[p.name] = p
+        ps[p.unique_key] = p
         store.set(cls.db_key(), ps)
         return p
