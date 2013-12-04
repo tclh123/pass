@@ -5,22 +5,25 @@ from pas.utils.passwd import mask_pwd
 
 
 def Account(object):
-    def __init__(self, uid, name, passwd, plat_name):
+    def __init__(self, uid, name, email, passwd, plat_name):
         self.uid = uid
         self.name = name
+        self.email = email
         self.passwd = passwd
         self.plat_name = plat_name
 
     def __str__(self):
-        return ('{name}({uid}), {plat_name}, pwd: {masked_pwd}'
+        return ('{name}({uid}), {plat_name}, email: {email}, pwd: {masked_pwd}'
                 .format(dict(uid=self.uid,
                              name=self.name,
+                             email=self.email,
                              plat_name=self.plat_name,
                              masked_pwd=self.masked_pwd)))
 
     def __repr__(self):
-        return ('<Account(uid=%s, name=%s, passwd=%s, plat_name=%s)>'
-                % (self.uid, self.name, self.masked_pwd, self.plat_name))
+        return ('<Account(uid=%s, name=%s, email=%s, passwd=%s, plat_name=%s)>'
+                % (self.uid, self.name, self.email,
+                   self.masked_pwd, self.plat_name))
 
     @property
     def unique_key(self):
@@ -57,9 +60,9 @@ def Account(object):
             return False
 
     @classmethod
-    def add(cls, uid, name, passwd, plat_name):
+    def add(cls, uid, name, email, passwd, plat_name):
         accs = cls._gets()
-        a = cls(uid, name, passwd, plat_name)
+        a = cls(uid, name, email, passwd, plat_name)
         accs[a.unique_key] = a
         store.set(cls.db_key(), accs)
         return a

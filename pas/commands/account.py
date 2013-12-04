@@ -7,8 +7,9 @@ def populate_argument_parser(parser):
     parser.add_argument('action', choices=['add', 'list', 'rm'])
     parser.add_argument('-u', '--uid', help="account's uid")
     parser.add_argument('-n', '--name', help="account's name")
+    parser.add_argument('-e', '--email', help="account's email")
     parser.add_argument('-p', '--passwd', help="account's passwd")
-    parser.add_argument('-P', '--platform', help="platform's passwd")
+    parser.add_argument('-P', '--platform', help="account's platform")
 
 
 def main(args):
@@ -20,7 +21,8 @@ def main(args):
         else:
             print 'Empty'
     elif args.action == 'add':
-        a = Account.add(args.uid, args.name, args.passwd, args.platform)
+        a = Account.add(args.uid, args.name, args.email,
+                        args.passwd, args.platform)
         print a
     elif args.action == 'rm':
         if Account.rm(args.uid, args.platform):
