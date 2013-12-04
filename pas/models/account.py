@@ -5,12 +5,14 @@ from pas.utils.passwd import mask_pwd
 
 
 def Account(object):
-    def __init__(self, uid, name, email, passwd, plat_name):
+    def __init__(self, uid, passwd, plat_name,
+                 name=None, email='', phone=''):
         self.uid = uid
-        self.name = name
-        self.email = email
         self.passwd = passwd
         self.plat_name = plat_name
+        self.name = name or uid
+        self.email = email or ''
+        self.phone = phone or ''
 
     def __str__(self):
         return ('{name}({uid}), {plat_name}, email: {email}, pwd: {masked_pwd}'
@@ -60,9 +62,10 @@ def Account(object):
             return False
 
     @classmethod
-    def add(cls, uid, name, email, passwd, plat_name):
+    def add(cls, uid, passwd, plat_name,
+            name=None, email='', phone=''):
         accs = cls._gets()
-        a = cls(uid, name, email, passwd, plat_name)
+        a = cls(uid, passwd, plat_name, name, email, phone)
         accs[a.unique_key] = a
         store.set(cls.db_key(), accs)
         return a
