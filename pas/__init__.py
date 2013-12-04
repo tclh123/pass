@@ -15,7 +15,11 @@ def main():
                                        dest="subparser_command")
     subcommands = [
         ('status', 'status', "Show system status"),
+        ('st', 'status', "Alias of status"),
         ('platform', 'platform', "Pass platform management"),
+        ('pl', 'platform', "Alias of platform"),
+        ('account', 'account', "Pass account management"),
+        ('ac', 'account', "Alias of account"),
     ]
 
     for command, module_name, help_text in subcommands:
