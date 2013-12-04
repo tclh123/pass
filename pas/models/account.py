@@ -3,4 +3,4 @@
 
 def Account(object):
     def __init__(self):
-        self.account
+        pass
