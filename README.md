@@ -49,7 +49,7 @@ taobao => http://www.taobao.com/
 ### Account
 
 ```
-(lh)vagrant@vagrant ~/github/pass $ pass ac -h
+$ pass ac -h
 usage: pass ac [-h] [-v] [-u UID] [-p PASSWD] [-P PLATFORM] [-n NAME]
                [-e EMAIL] [--phone PHONE]
                {add,list,rm}
