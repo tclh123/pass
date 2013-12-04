@@ -9,3 +9,5 @@ databases/pkl/*
 venv
 
 *.egg-info
+
+tmp
