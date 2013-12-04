@@ -22,6 +22,7 @@ def main(args):
         else:
             print 'Empty'
     elif args.action == 'add':
+        # FIXME: option args
         a = Account.add(args.uid, args.passwd, args.platform,
                         args.name, args.email, args.phone)
         print a

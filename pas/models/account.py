@@ -4,7 +4,7 @@ from pas.utils import store
 from pas.utils.passwd import mask_pwd
 
 
-def Account(object):
+class Account(object):
     def __init__(self, uid, passwd, plat_name,
                  name=None, email='', phone=''):
         self.uid = uid
@@ -16,11 +16,11 @@ def Account(object):
 
     def __str__(self):
         return ('{name}({uid}), {plat_name}, email: {email}, pwd: {masked_pwd}'
-                .format(dict(uid=self.uid,
-                             name=self.name,
-                             email=self.email,
-                             plat_name=self.plat_name,
-                             masked_pwd=self.masked_pwd)))
+                .format(uid=self.uid,
+                        name=self.name,
+                        email=self.email,
+                        plat_name=self.plat_name,
+                        masked_pwd=self.masked_pwd))
 
     def __repr__(self):
         return ('<Account(uid=%s, name=%s, email=%s, passwd=%s, plat_name=%s)>'
