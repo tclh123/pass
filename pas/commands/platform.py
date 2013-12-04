@@ -13,12 +13,15 @@ def main(args):
     if args.action == 'list':
         ps = Platform.gets()
         if ps:
-            print ps
+            for p in ps:
+                print p
         else:
             print 'Empty'
     elif args.action == 'add':
         p = Platform.add(args.name, args.url)
         print p
     elif args.action == 'rm':
-        # Platform.delete
-        print 'Not yet'
+        if Platform.rm(args.name):
+            print args.name, 'removed'
+        else:
+            print 'remove', args.name, 'failed'
