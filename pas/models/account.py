@@ -64,6 +64,8 @@ class Account(object):
     @classmethod
     def add(cls, uid, passwd, plat_name,
             name=None, email='', phone=''):
+        if not (uid and passwd and plat_name):
+            return None
         accs = cls._gets()
         a = cls(uid, passwd, plat_name, name, email, phone)
         accs[a.unique_key] = a

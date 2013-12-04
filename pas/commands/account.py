@@ -25,6 +25,8 @@ def main(args):
         # FIXME: option args
         a = Account.add(args.uid, args.passwd, args.platform,
                         args.name, args.email, args.phone)
+        if not a:
+            print 'add account failed'
         print a
     elif args.action == 'rm':
         if Account.rm(args.uid, args.platform):

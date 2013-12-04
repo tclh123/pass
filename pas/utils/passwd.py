@@ -2,6 +2,8 @@
 
 
 def mask_pwd(pwd):
+    if not pwd:
+        return ''
     n = len(pwd)
     prefix = suffix = ''
     if n > 2:
